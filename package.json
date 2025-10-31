@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "build": "next build",
+    "build:static": "next build && next export",
     "dev": "next dev",
     "lint": "next lint",
     "start": "next start",
@@ -18,7 +19,12 @@
     "cleanup:images": "node scripts/cleanup-images.js",
     "test:integration": "node scripts/test-integration.js",
     "test:all": "npm run test:db && npm run test:api && npm run test:auth && npm run test:api-protection && npm run test:integration",
-    "deploy": "bash scripts/deploy.sh"
+    "deploy": "bash scripts/deploy.sh",
+    "pm2:start": "pm2 start ecosystem.config.js",
+    "pm2:stop": "pm2 stop xinsd-diner",
+    "pm2:restart": "pm2 restart xinsd-diner",
+    "pm2:logs": "pm2 logs xinsd-diner",
+    "pm2:delete": "pm2 delete xinsd-diner"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
